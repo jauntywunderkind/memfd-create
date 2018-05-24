@@ -4,6 +4,7 @@
 
 #include <unistd.h>
 #include <linux/memfd.h>
+#include <sys/mman.h>
 
 using namespace v8;
 
