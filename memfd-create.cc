@@ -8,9 +8,9 @@
 
 using namespace v8;
 
-//const char* ToCString(Local<String> str) {
-//	return *value(str);
-//}
+const char* ToCString(Local<String> str) {
+	return *String::Utf8Value( str);
+}
 
 NAN_METHOD(memfd_create_nan) {
 
@@ -24,7 +24,7 @@ NAN_METHOD(memfd_create_nan) {
 	// Try to be a little (motherly) helpful to us poor clueless developers
 	if (!info[0]->IsString())	return Nan::ThrowError("memfd_create: name (arg[0]) must be a string");
 	if (!info[1]->IsNumber())	return Nan::ThrowError("memfd_create: flags (arg[1]) must be an integer");
-	const char * name = *info[0]->ToString()->Value();
+	const char * name = ToCString(info[0]->ToString());
 	const unsigned int flags = info[1]->ToInteger()->Value();
 
 	const int fd = memfd_create(name, flags);
