@@ -1,8 +1,8 @@
 {
 	"name": "memfd-create",
 	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
+	"description": "memory backed filehandles via memfd_create(2) as a node_js addon",
+	"main": "build/Releases/memfd-create.node",
 	"scripts": {
 		"install": "node-gyp configure && node-gyp rebuild",
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -14,7 +14,6 @@
 	"keywords": [],
 	"author": "jauntywunderkind",
 	"license": "MIT",
-	"module": "memfd-create.js",
 	"esm": true,
 	"@std/esm": {
 		"cjs": {
